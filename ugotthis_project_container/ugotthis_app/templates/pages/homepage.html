@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block content %}
+<div class="row">
+  <div class="col">
+    <h1>You are on the homepage.</h1>
+    {% if user.is_authenticated %}
+      <h2>Welcome {{ user.username }}</h1>
+      <hr />
+    {% endif %}
+
+    <form action="." method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-lg btn-primary">Register</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

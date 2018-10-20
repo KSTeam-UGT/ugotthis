@@ -5,5 +5,8 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.homepage, name='homepage'),
+    # path('users/<username>/', views.user_page, name="user_page"),
+    path('register/', views.registration, name="registration"),
+    # path('profile/', views.profile_page),
 ]
