@@ -1,17 +1,27 @@
+# pylint: disable=E1101
 from django.shortcuts import render, redirect
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib import auth
 # from django.http import HttpResponse
 
-from .models import *
+from .models import UserSetting
 
 
 class NewUserForm(forms.Form):
     username = forms.CharField(max_length=100)
     password = forms.CharField(widget=forms.PasswordInput)
     email = forms.EmailField()
-    # setting = forms.RadioSelect
+    # get all default settings from db, put them in a
+    # tuple (e.g., "choices"), and assign that as value of widget:
+    choices = (
+        ('1', 'Focus, Success, Persistence, Determination, Motivation'),
+        ('2', 'Uplift, Inspire, Happiness'),
+        ('3', 'Health, Strength, Fitness'),
+        ('4', 'Peace, Meditation, Zen, Gratitude, Love'),
+    )
+    setting = forms.ChoiceField(widget=forms.RadioSelect,
+                                choices=choices)
 
 
 class LoginForm(forms.ModelForm):
@@ -51,14 +61,6 @@ def homepage(request):
 
 
 def registration(request):
-    # possibly need to get all default settings from db, put them in a
-    # tuple (e.g., CHOICES), and assign that as value of widget:
-    # CHOICES = (('1', 'First',), ('2', 'Second',))
-    # choice_field = forms.ChoiceField(
-    #                                   widget=forms.RadioSelect,
-    #                                   choices=CHOICES
-    #                                   )
-
     if request.method == 'POST':
 
         # Create a form instance and populate it with data from the request
@@ -72,9 +74,42 @@ def registration(request):
                 password=form.cleaned_data['password'],
                 email=form.cleaned_data['email'],
             )
+            # usetting = UserSetting.objects.get(id=1)
+            # usetting.add(user)
+            print('NEW USER ID:', user.id)
+            print('USER FORM SETTING:', form.cleaned_data['setting'])
+            print(request)
 
-            # setting = UserSetting.objects.get(id=setting_id)
-            # setting.selected.add(request.user)
+            if form.cleaned_data['setting'] == '1':
+                keywords = [1, 2, 3, 4, 5]
+                print('IF SETTING 1')
+            elif form.cleaned_data['setting'] == '2':
+                keywords = [6, 7, 8]
+                print('IF SETTING 2')
+            elif form.cleaned_data['setting'] == '3':
+                keywords = [9, 10, 11]
+                print('IF SETTING 3')
+            else:
+                keywords = [12, 13, 14, 15, 16]
+                print('IF SETTING 4')
+
+            for kw_id in keywords:
+                UserSetting.objects.create(
+                    keywords=UserSetting.objects.get(id=kw_id),
+                    user_id=user.id,
+                )
+
+            # setting = UserSetting.objects.get(id=setting_id) OLD SEE BELOW
+            # setting.selected.add(request.user)               OLD SEE BELOW
+            '''
+            user = User.objects.create_user(name='asdf')
+
+            usetting = UserSetting.objects.get(id=1)
+            user.selected_setting.add(usetting) # use either this or the next
+                                                # line, it doesn't matter
+            usetting.selected.add(user)
+
+            '''
 
             # As soon as our new user is created, we make this user be
             # instantly "logged in".

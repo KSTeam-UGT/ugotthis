@@ -1,3 +1,4 @@
+# pylint: disable=E1101
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -13,7 +14,5 @@ class UserSetting(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
 
-    selected = models.ManyToManyField(
-        User,
-        related_name="selected_setting",
-    )
+    def __str__(self):
+        return self.keywords
