@@ -4,15 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{% block title %}{{ pagename}} | U Got This{% endblock title %}</title>
+  <title>{% block title %}{{ pagename }} | U Got This{% endblock title %}</title>
 
   <!-- Latest compiled and minified Bootstrap 4 beta CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/litera/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.css" />
   <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Prosto+One" rel="stylesheet">
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static "style.css" %}" />
+
 </head>
 <body>
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+    <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
 {% block nav %}
 
 {% endblock nav %}
