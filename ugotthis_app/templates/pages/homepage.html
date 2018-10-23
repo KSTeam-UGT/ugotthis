@@ -5,30 +5,6 @@
 {% block bodyclass %}home fifty-fifty-split{% endblock bodyclass %}
 
 {% block content %}
-<!--
-<div class="header-bar">
-  <div class="container">
-    <div class="row login-form-container">
-      <form action="." method="POST" class="form-inline login-form">
-        {% csrf_token %}
-        <div class="login-field">
-          <div>{{ login_form.username.name }}</div>
-          <div>
-            {{ login_form.username }}
-          </div>
-        </div>
-        <div class="login-field">
-          <div>{{ login_form.password.name }}</div>
-          <div>
-            {{ login_form.password }}
-          </div>
-        </div>
-        <button type='submit' name='submit' value='login' class="btn btn-outline-primary btn-login">Login</button>
-      </form>
-    </div>
-  </div>
-</div>
--->
 <div class="container full-vw-for-narrow-v">
   <div class="row homepage-container">
     <div class="col-md-6">
@@ -43,13 +19,13 @@
           <form action="." method="POST" class="form-inline login-form">
             {% csrf_token %}
             <div class="login-field">
-              <label for="" class="requiredField">{{ login_form.username.name|title }}</label>
+              <label for="id_login_username" class="requiredField">{{ login_form.username.name|title }}</label>
               <div>
                 {{ login_form.username }}
               </div>
             </div>
             <div class="login-field">
-              <label for="" class="requiredField">{{ login_form.password.name|title }}</label>
+              <label for="id_login_password" class="requiredField">{{ login_form.password.name|title }}</label>
               <div>
                 {{ login_form.password }}
               </div>
@@ -67,15 +43,6 @@
           <button type='submit' name='submit' value='register' class="btn btn-lg btn-primary">Sign Up</button>
         </form>
       </div>
-      <!-- 
-      <hr />
-      <h2>Log In</h2>
-      <form action="." method="POST" class="form-inline">
-        {% csrf_token %}
-        {{ login_form|crispy }}
-        <button type='submit' name='submit' value='login' class="btn btn-lg btn-primary">Login</button>
-      </form>
-       -->
       {% endif %}
     </div>
     <div class="bg-color-brand-1 col-md-6">

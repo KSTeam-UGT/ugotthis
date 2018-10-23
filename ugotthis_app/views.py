@@ -48,7 +48,7 @@ def homepage(request):
     if request.POST.get('submit') == 'login':
 
         # Create a form instance and populate it with data from the request
-        login_form = LoginForm(request.POST)
+        login_form = LoginForm(request.POST, prefix='login-form')
 
         if login_form.is_valid():
             username = request.POST.get('username', '')
@@ -61,12 +61,12 @@ def homepage(request):
 
     else:
         # if a GET we'll create a blank form
-        login_form = LoginForm()
+        login_form = LoginForm(prefix='login-form')
 
     if request.POST.get('submit') == 'register':
 
         # Create a form instance and populate it with data from the request
-        registration_form = NewUserForm(request.POST)
+        registration_form = NewUserForm(request.POST, prefix='registration-form')
 
         if registration_form.is_valid():
             # Create a new user object populated with the data we are
@@ -100,7 +100,7 @@ def homepage(request):
 
     else:
         # if a GET we'll create a blank form
-        registration_form = NewUserForm()
+        registration_form = NewUserForm(prefix='registration-form')
 
     context = {
         'login_form': login_form,
