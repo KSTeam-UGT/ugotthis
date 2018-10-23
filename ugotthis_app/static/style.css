@@ -47,16 +47,6 @@ h3 {color: darkblue;}
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-/* body {
-  background: linear-gradient(to right, var(--blue) 0%, var(--blue) 50%, var(--white) 50%, var(--white) 100%);
-} */
-
-@media (min-width: var(--breakpoint-md)) {
-  body {
-    background: linear-gradient(to right, var(--blue) 0%, var(--blue) 50%, var(--white) 50%, var(--white) 100%);
-  }
-}
-
 h1, h2, h3, h4, h5, h6 {
   color: var(--primary);
   font-family: 'Prosto One', cursive;
@@ -75,6 +65,28 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary);
 }
 
+@media (max-width: 767px) {
+  .full-vw-for-narrow-v {
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .fifty-fifty-split {
+    background: linear-gradient(to right, var(--blue) 0%, var(--blue) 50%, var(--white) 50%, var(--white) 100%);
+  }
+}
+
+.full_vh {
+  height: 100vh;
+}
+
+.btn {
+  border-radius: 4px;
+}
+
 /* buttons */
 
 /* header */
@@ -84,9 +96,85 @@ h1, h2, h3, h4, h5, h6 {
 /* footer */
 
 /* homepage */
+/* .header-bar {
+  margin: 0;
+  min-width: 100%;
+} */
+
+.homepage-slogan-container {
+  align-items: center;
+  display: flex;
+  min-height: 100%;
+}
+
+.homepage-slogan {
+  font-size: 24px;
+}
+
 .homepage-container {
-  /* display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 100%; */
-  height: 100vh;
+  flex-direction: row-reverse;
+}
+
+.login-form-container {
+  justify-content: center;
+}
+
+.login-field {
+  margin-right: 5px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+  .login-form.form-inline {
+    display: block;
+    width: 100%;
+  }
+
+  .login-field input.form-control {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .login-form-container {
+    justify-content: flex-end;
+  }
+
+  .login-form.form-inline {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .login-form.form-inline label {
+    justify-content: flex-start;
+  }
+
+  .login-field {
+    margin-bottom: 0;
+  }
+
+  .login-field input.form-control {
+    width: 120px;
+  }
+
+  .btn-login {
+    position: relative;
+    bottom: 1px;
+  }
+}
+
+@media (min-width: 992px) {
+  .login-field input.form-control {
+    width: 150px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .login-field input.form-control {
+    width: 200px;
+  }
+}
+
+.registration-form {
+  margin-top: 100px;
 }

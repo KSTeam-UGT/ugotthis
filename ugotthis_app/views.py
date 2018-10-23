@@ -28,9 +28,15 @@ class NewUserForm(forms.Form):
 
 class LoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(
-                                   attrs={'id': 'id_login_username'}))
+                                   attrs={'id': 'id_login_username',
+                                          'class': 'textinput '
+                                                   'textInput '
+                                                   'form-control'}))
     password = forms.CharField(widget=forms.PasswordInput(
-                                   attrs={'id': 'id_login_password'}))
+                                   attrs={'id': 'id_login_password',
+                                          'class': 'textinput '
+                                                   'textInput '
+                                                   'form-control'}))
 
 
 def logout_user(request):
