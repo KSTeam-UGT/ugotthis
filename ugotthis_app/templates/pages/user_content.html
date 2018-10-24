@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}Your Recommendations{% endblock title %}
+
+{% block bodyclass %}user-page{% endblock bodyclass %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col logout-container">
+        <a href="/logout" class="btn btn-lg btn-primary">Logout</a>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col page-title-container">
+        <h1 class="page-title">U Got This, {{ user.username }}</h2>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col">
+      <h2>Your Interests</h2>
+      <ul>
+      {% for word in keywords %}
+        <li>{{ word }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+  <hr class="section-divider" />
+
+  <div class="content-type-section">
+    <h2 class="content-type-heading">Here are your book recommendations:</h2>
+    {% for book in books %}
+      {% include "components/book_card.html" %}
+    {% endfor %}
+  </div>
+
+  <hr class="section-divider" />
+  <hr class="section-divider" />
+
+  <div class="content-type-section">
+    <h2 class="content-type-heading">Here are your video recommendations:</h2>
+    {% for video in videos %}
+      {% include "components/video_card.html" %}
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+<div class="row content-card book-content-card">
+  <div class="col-md-3 col-lg-2">
+      <a href="https://openlibrary.org{{ book.link_key }}" target="_blank"><img class="thumbnail" src="https://covers.openlibrary.org/w/id/{{ book.cover_id }}-M.jpg" alt="book cover" /></a>
+  </div>
+  <div class="col-md-9 col-lg-10">
+    <h3 class="content-title">
+        <a class="content-title-link" href="https://openlibrary.org{{ book.link_key }}" target="_blank">{{ book.title }}</a>
+    </h3>
+    {% for author in book.authors %}
+      <p>{{ author }}</p>
+    {% endfor %}
+  </div>
+</div>

@@ -44,12 +44,19 @@ h3 {color: darkblue;}
 :root {
   --blue: lightblue;
   --primary: #28225e;
+  --success: #186329;
+  --warning: #774909;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--primary);
   font-family: 'Prosto One', cursive;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .brand-font {
@@ -177,4 +184,156 @@ h1, h2, h3, h4, h5, h6 {
 
 .registration-form {
   margin-top: 100px;
+}
+
+/* messages */
+.messages {
+  text-align: center;
+}
+
+.alert {
+  border-radius: 0;
+}
+
+.alert-success {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.alert-warning {
+  color: #000;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+
+
+
+
+
+/*
+ * YOUR STYLES HERE
+ */
+
+ h1.page-title {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 44px;
+  text-align: center;
+ }
+
+ h2.page-title {
+  font-family: 'Prosto One', cursive;
+  font-size: 25px;
+  font-style: italic;
+  text-align: center;
+ }
+
+ h3.page-title {
+  font-family: 'Prosto One', cursive;
+  font-size: 12px;
+ }
+
+img.square {
+  height: 250px;
+  width: 250px;
+  margin: auto auto;
+}
+
+img.square-lg {
+  height: 300px;
+  width: 300px;
+  margin: auto auto;
+}
+
+.squeeze-in {
+  border: solid 1px black;
+  text-align: center;
+  padding: 10px 10px;
+}
+
+.thick-bottom {
+  border-bottom: solid 3px black;
+}
+
+@media (min-width: 768px) {
+  .book-item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc((100% / 4) - 15px), 1fr));
+    grid-gap: 20px;
+  }
+}
+
+
+/* user page */
+.user-page {
+  background-color: var(--blue);
+}
+
+.user-page .content-container {
+  padding-top: 20px;
+}
+
+.user-page .page-title-container {
+  padding: 20px 0 40px 0;
+}
+
+.logout-container {
+  text-align: right;
+}
+
+
+.section-divider {
+  background-color: #000;
+  border-width: 4px;
+}
+
+.content-type-section {
+  margin: 40px 0;
+}
+
+.thumbnail {
+  border: 1px solid grey;
+  /* width: 130px; */
+}
+
+@media (max-width: 767px) {
+  .thumbnail {
+    margin-bottom: 20px;
+  }
+}
+
+.book-thumbnail {
+  width: 130px;
+}
+
+.content-title {
+  font-size: 24px;
+}
+
+.content-title-link {
+  color: var(--primary);
+}
+
+.content-text-link {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.content-card {
+  border-bottom: solid 1px black;
+  padding: 30px 0 14px 0;
+}
+
+.content-card:last-child {
+  border-bottom-style: none;
+}
+
+.book-content-card {
+  padding-bottom: 30px;
+}
+
+.book-content-card:last-child {
+  padding-bottom: 0;
 }
