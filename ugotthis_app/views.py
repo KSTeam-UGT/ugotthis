@@ -236,8 +236,9 @@ def user_page(request, username):
         # Get videos from YouTube
         response_video = requests.get(
             'https://www.googleapis.com/youtube/v3/search?'
-            'part=snippet&maxResults=50&q=' + search_string +
-            '&key=AIzaSyBXLC_j264f9ZUllnvEidYIBAVckJVI5cI&maxResults=1'
+            # 'part=snippet&maxResults=5&q=' + search_string +
+
+            '&key=AIzaSyBXLC_j264f9ZUllnvEidYIBAVckJVI5cI'
             '&safeSearch=strict&type=video'
         )
         data_video = response_video.json()
@@ -251,7 +252,6 @@ def user_page(request, username):
                         'thumbnail': video['snippet']['thumbnails']['medium']['url'],
                         'link': 'https://www.youtube.com/watch?v=' + video['id']['videoId'],
                         'description': video['snippet']['description'],
-                        
                     }
                 )
                 # print('https://www.youtube.com/watch?v=' + video['id']['videoId'])
