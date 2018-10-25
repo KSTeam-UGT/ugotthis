@@ -24,9 +24,12 @@ SECRET_KEY = '3=blpxu(@dl=&j4qr&(05@&4uesw9lnw16$@-7mohnihd$!q_&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.16.21.95']
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.16.21.95']
+ALLOWED_HOSTS = ['*']
 
+INTERNAL_IPS = ['127.0.0.1']
 
 # Application definition
 
@@ -39,11 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -62,6 +67,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'ugotthis_app.context_processors.test',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',

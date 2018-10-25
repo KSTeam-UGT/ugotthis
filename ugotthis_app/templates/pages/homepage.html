@@ -1,20 +1,59 @@
 {% extends "base.html" %}
 {% load static i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}Home{% endblock title %}
+
+{% block bodyclass %}home fifty-fifty-split{% endblock bodyclass %}
 
 {% block content %}
-<div class="row">
-  <div class="col">
-    <h1>You are on the homepage.</h1>
-    {% if user.is_authenticated %}
-      <h2>Welcome {{ user.username }}</h1>
-      <hr />
-    {% endif %}
+<div class="container full-vw-for-narrow-v">
+  <div class="row homepage-container">
+    <div class="col-md-6">
+      {% if user.is_authenticated %}
+        <h2>Welcome {{ user.username }}</h2>
+        <a href="/logout" class="btn btn-lg btn-primary">Logout</a>
+      {% endif %}
 
-    <form action="." method="POST">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button class="btn btn-lg btn-primary">Register</button>
-    </form>
+      {% if user.is_authenticated is not True %}
+      <div class="container">
+        <div class="row login-form-container">
+          <form action="." method="POST" class="form-inline login-form">
+            {% csrf_token %}
+            <div class="login-field">
+              <label for="id_login_username" class="requiredField">{{ login_form.username.name|title }}</label>
+              <div>
+                {{ login_form.username }}
+              </div>
+            </div>
+            <div class="login-field">
+              <label for="id_login_password" class="requiredField">{{ login_form.password.name|title }}</label>
+              <div>
+                {{ login_form.password }}
+              </div>
+            </div>
+            <button type='submit' name='submit' value='login' class="btn btn-outline-primary btn-login">Login</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="registration-form">
+        <h2>Sign Up</h2>
+        <form action="." method="POST">
+          {% csrf_token %}
+          {{ registration_form|crispy }}
+          <button type='submit' name='submit' value='register' class="btn btn-lg btn-primary">Sign Up</button>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+    <div class="bg-color-brand-1 col-md-6">
+        <div class="homepage-slogan-container">
+          <h1 class="homepage-slogan brand-font">We believe in believing in ourselves.<br /><br />
+          And we believe in you!<br /><br />
+          U Got This!</h1>
+        </div>
+    </div>
   </div>
 </div>
 {% endblock content %}
