@@ -114,7 +114,7 @@ def homepage(request):
                 # As soon as our new user is created, we make this user be
                 # instantly "logged in".
                 messages.success(request, 'Registration successful. '
-                                            'Welcome to U Got This!')
+                                          'Welcome to U Got This!')
                 return redirect('/users/' + str(user))
 
             elif User.objects.filter(
@@ -130,7 +130,6 @@ def homepage(request):
         # if a GET we'll create a blank form
         registration_form = NewUserForm(prefix='registration-form')
 
-    # import IPython; IPython.embed()
     context = {
         'login_form': login_form,
         'registration_form': registration_form,
@@ -236,8 +235,7 @@ def user_page(request, username):
         # Get videos from YouTube
         response_video = requests.get(
             'https://www.googleapis.com/youtube/v3/search?'
-            # 'part=snippet&maxResults=5&q=' + search_string +
-
+            'part=snippet&maxResults=5&q=' + search_string +
             '&key=AIzaSyBXLC_j264f9ZUllnvEidYIBAVckJVI5cI'
             '&safeSearch=strict&type=video'
         )
@@ -249,15 +247,13 @@ def user_page(request, username):
                     {
                         'id': video['id']['videoId'],
                         'title': video['snippet']['title'],
-                        'thumbnail': video['snippet']['thumbnails']['medium']['url'],
-                        'link': 'https://www.youtube.com/watch?v=' + video['id']['videoId'],
+                        'thumbnail': video['snippet']['thumbnails']
+                                          ['medium']['url'],
+                        'link': 'https://www.youtube.com/watch?v=' +
+                                video['id']['videoId'],
                         'description': video['snippet']['description'],
                     }
                 )
-                # print('https://www.youtube.com/watch?v=' + video['id']['videoId'])
-        # videos = list(set(videos))
-
-
 
     books = sorted(books, key=lambda k: k['title'])
 
