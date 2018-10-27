@@ -18,6 +18,7 @@
       {% if user.is_authenticated is not True %}
       <div class="container">
         <div class="row login-form-container">
+          <div class="homepage-logo-top"><img class="logo-small" src="/static/logo-bird-transparent.png" alt="logo"></div>
           <form action="." method="POST" class="form-inline login-form">
             {% csrf_token %}
             <div class="login-field">
@@ -49,6 +50,9 @@
     </div>
     <div class="bg-color-brand-1 col-md-6">
         <div class="homepage-slogan-container">
+          <div class="homepage-logo-container">
+            <img src="{% static "logo-transparent.png" %}" alt="logo">
+          </div>
           <h1 class="homepage-slogan brand-font">We believe in believing in ourselves.<br /><br />
           And we believe in you!<br /><br />
           U Got This!</h1>

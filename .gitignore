@@ -2,4 +2,6 @@
 *.gz
 **/static/admin/**/*
 **/static/staticfiles.json
+**/static/staticfiles.*.json
 **/static/*.*.css
+**/static/*.*.png
