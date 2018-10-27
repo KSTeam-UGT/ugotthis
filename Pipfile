@@ -8,6 +8,7 @@ requests = "*"
 django = "*"
 django-crispy-forms = "*"
 django-heroku = "*"
+whitenoise = "*"
 
 [dev-packages]
 pylint = "*"
