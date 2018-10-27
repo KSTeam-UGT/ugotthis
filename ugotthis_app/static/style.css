@@ -97,6 +97,9 @@ img {
 /* buttons */
 
 /* header */
+.logo-small {
+  height: 41px;
+}
 
 /* nav */
 
@@ -108,10 +111,24 @@ img {
   min-width: 100%;
 } */
 
+.homepage-logo-container,
+.homepage-slogan {
+  margin: 0 auto;
+}
+@media (min-width: 992px) {
+  .homepage-logo-container,
+  .homepage-slogan {
+    margin: auto;
+  }
+}
+
 .homepage-slogan-container {
   align-items: center;
   display: flex;
-  min-height: 100%;
+  flex-wrap: wrap;
+  /* min-height: 100%; */
+  padding-top: 47px;
+  padding-bottom: 100px;
 }
 
 .homepage-slogan {
@@ -124,6 +141,17 @@ img {
 
 .login-form-container {
   justify-content: center;
+  margin-top: 50px;
+}
+
+@media (min-width: 768px) {
+  .login-form-container {
+    margin-top: 10px;
+  }
+
+  .homepage-logo-top {
+    display: none;
+  }
 }
 
 .login-field {
@@ -184,6 +212,7 @@ img {
 
 .registration-form {
   margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 /* messages */
