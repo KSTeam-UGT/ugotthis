@@ -237,7 +237,7 @@ def user_page(request, username):
         response_video = requests.get(
             'https://www.googleapis.com/youtube/v3/search?'
             'part=snippet&maxResults=5&q=' + search_string +
-            '&key=' + youtube_api_key +
+            '&key=' + str(youtube_api_key) +
             '&safeSearch=strict&type=video'
         )
         data_video = response_video.json()
