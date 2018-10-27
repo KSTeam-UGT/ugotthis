@@ -5,10 +5,13 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import logout
 from django.contrib import messages
+import os
 
 import requests
 
 from .models import UserSetting
+
+youtube_api_key = os.environ.get('YOUTUBE_API_KEY')
 
 
 class NewUserForm(forms.Form):
@@ -114,7 +117,7 @@ def homepage(request):
                 # As soon as our new user is created, we make this user be
                 # instantly "logged in".
                 messages.success(request, 'Registration successful. '
-                                            'Welcome to U Got This!')
+                                          'Welcome to U Got This!')
                 return redirect('/users/' + str(user))
 
             elif User.objects.filter(
@@ -122,7 +125,6 @@ def homepage(request):
             ).exists() or User.objects.filter(
                 email=registration_form.cleaned_data['email']
             ).exists():
-                print('USER OR EMAIL EXISTS')
                 messages.warning(request, 'Account already exists.')
                 return redirect('/')
 
@@ -130,7 +132,6 @@ def homepage(request):
         # if a GET we'll create a blank form
         registration_form = NewUserForm(prefix='registration-form')
 
-    # import IPython; IPython.embed()
     context = {
         'login_form': login_form,
         'registration_form': registration_form,
@@ -186,7 +187,6 @@ def registration(request):
 
 def user_page(request, username):
     if not request.user.is_authenticated:
-        print('TEST')
         messages.warning(request, "Please log in to view that page")
         return redirect('/')
 
@@ -236,9 +236,8 @@ def user_page(request, username):
         # Get videos from YouTube
         response_video = requests.get(
             'https://www.googleapis.com/youtube/v3/search?'
-            # 'part=snippet&maxResults=5&q=' + search_string +
-
-            '&key=AIzaSyBXLC_j264f9ZUllnvEidYIBAVckJVI5cI'
+            'part=snippet&maxResults=5&q=' + search_string +
+            '&key=' + youtube_api_key +
             '&safeSearch=strict&type=video'
         )
         data_video = response_video.json()
@@ -249,15 +248,13 @@ def user_page(request, username):
                     {
                         'id': video['id']['videoId'],
                         'title': video['snippet']['title'],
-                        'thumbnail': video['snippet']['thumbnails']['medium']['url'],
-                        'link': 'https://www.youtube.com/watch?v=' + video['id']['videoId'],
+                        'thumbnail': video['snippet']['thumbnails']
+                                          ['medium']['url'],
+                        'link': 'https://www.youtube.com/watch?v=' +
+                                video['id']['videoId'],
                         'description': video['snippet']['description'],
                     }
                 )
-                # print('https://www.youtube.com/watch?v=' + video['id']['videoId'])
-        # videos = list(set(videos))
-
-
 
     books = sorted(books, key=lambda k: k['title'])
 
