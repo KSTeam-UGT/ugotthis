@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}You Got This{% endblock %}
+{% block nav_home_class %}active{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row"><h2>Register a user</h2></div>
+    <div class="row">
+        <div class="col-md-6">I AM THE OTHER HALF!!!</div> 
+        <div class="card-body col-md-6">
+            <form class="" action="." method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-success btn-lg">Register!</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

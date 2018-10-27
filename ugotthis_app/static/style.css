@@ -1,0 +1,339 @@
+/* body */
+/* font-family: 'Prosto One', cursive;
+font-family: 'Gloria Hallelujah', cursive;
+background-color: lightblue;
+(on index.html) 
+h2 {color: #0049a3;}
+p {color: #28225e;}
+h3 {color: darkblue;}
+*/
+
+/* Bootstrap CSS Variables */
+/*
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+*/
+:root {
+  --blue: lightblue;
+  --primary: #28225e;
+  --success: #186329;
+  --warning: #774909;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary);
+  font-family: 'Prosto One', cursive;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.brand-font {
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.bg-color-brand-1 {
+  background-color: var(--blue);
+  color: var(--primary);
+}
+
+.color-primary {
+  color: var(--primary);
+}
+
+@media (max-width: 767px) {
+  .full-vw-for-narrow-v {
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .fifty-fifty-split {
+    background: linear-gradient(to right, var(--blue) 0%, var(--blue) 50%, var(--white) 50%, var(--white) 100%);
+  }
+}
+
+.full_vh {
+  height: 100vh;
+}
+
+.btn {
+  border-radius: 4px;
+}
+
+/* buttons */
+
+/* header */
+
+/* nav */
+
+/* footer */
+
+/* homepage */
+/* .header-bar {
+  margin: 0;
+  min-width: 100%;
+} */
+
+.homepage-slogan-container {
+  align-items: center;
+  display: flex;
+  min-height: 100%;
+}
+
+.homepage-slogan {
+  font-size: 24px;
+}
+
+.homepage-container {
+  flex-direction: row-reverse;
+}
+
+.login-form-container {
+  justify-content: center;
+}
+
+.login-field {
+  margin-right: 5px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+  .login-form.form-inline {
+    display: block;
+    width: 100%;
+  }
+
+  .login-field input.form-control {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .login-form-container {
+    justify-content: flex-end;
+  }
+
+  .login-form.form-inline {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .login-form.form-inline label {
+    justify-content: flex-start;
+  }
+
+  .login-field {
+    margin-bottom: 0;
+  }
+
+  .login-field input.form-control {
+    width: 120px;
+  }
+
+  .btn-login {
+    position: relative;
+    bottom: 1px;
+  }
+}
+
+@media (min-width: 992px) {
+  .login-field input.form-control {
+    width: 150px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .login-field input.form-control {
+    width: 200px;
+  }
+}
+
+.registration-form {
+  margin-top: 100px;
+}
+
+/* messages */
+.messages {
+  text-align: center;
+}
+
+.alert {
+  border-radius: 0;
+}
+
+.alert-success {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.alert-warning {
+  color: #000;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+
+
+
+
+
+/*
+ * YOUR STYLES HERE
+ */
+
+ h1.page-title {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 44px;
+  text-align: center;
+ }
+
+ h2.page-title {
+  font-family: 'Prosto One', cursive;
+  font-size: 25px;
+  font-style: italic;
+  text-align: center;
+ }
+
+ h3.page-title {
+  font-family: 'Prosto One', cursive;
+  font-size: 12px;
+ }
+
+img.square {
+  height: 250px;
+  width: 250px;
+  margin: auto auto;
+}
+
+img.square-lg {
+  height: 300px;
+  width: 300px;
+  margin: auto auto;
+}
+
+.squeeze-in {
+  border: solid 1px black;
+  text-align: center;
+  padding: 10px 10px;
+}
+
+.thick-bottom {
+  border-bottom: solid 3px black;
+}
+
+@media (min-width: 768px) {
+  .book-item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc((100% / 4) - 15px), 1fr));
+    grid-gap: 20px;
+  }
+}
+
+
+/* user page */
+.user-page {
+  background-color: var(--blue);
+}
+
+.user-page .content-container {
+  padding-top: 20px;
+}
+
+.user-page .page-title-container {
+  padding: 20px 0 40px 0;
+}
+
+.logout-container {
+  text-align: right;
+}
+
+
+.section-divider {
+  background-color: #000;
+  border-width: 4px;
+}
+
+.content-type-section {
+  margin: 40px 0;
+}
+
+.thumbnail {
+  border: 1px solid grey;
+  /* width: 130px; */
+}
+
+@media (max-width: 767px) {
+  .thumbnail {
+    margin-bottom: 20px;
+  }
+}
+
+.book-thumbnail {
+  width: 130px;
+}
+
+.content-title {
+  font-size: 24px;
+}
+
+.content-title-link {
+  color: var(--primary);
+}
+
+.content-text-link {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.content-card {
+  border-bottom: solid 1px black;
+  padding: 30px 0 14px 0;
+}
+
+.content-card:last-child {
+  border-bottom-style: none;
+}
+
+.book-content-card {
+  padding-bottom: 30px;
+}
+
+.book-content-card:last-child {
+  padding-bottom: 0;
+}
