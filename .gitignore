@@ -1,1 +1,5 @@
 *.pyc
+*.gz
+**/static/admin/**/*
+**/static/staticfiles.json
+**/static/*.*.css
