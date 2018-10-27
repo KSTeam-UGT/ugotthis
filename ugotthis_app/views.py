@@ -5,10 +5,13 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import logout
 from django.contrib import messages
+import os
 
 import requests
 
 from .models import UserSetting
+
+youtube_api_key = os.environ.get('YOUTUBE_API_KEY')
 
 
 class NewUserForm(forms.Form):
@@ -122,7 +125,6 @@ def homepage(request):
             ).exists() or User.objects.filter(
                 email=registration_form.cleaned_data['email']
             ).exists():
-                print('USER OR EMAIL EXISTS')
                 messages.warning(request, 'Account already exists.')
                 return redirect('/')
 
@@ -185,7 +187,6 @@ def registration(request):
 
 def user_page(request, username):
     if not request.user.is_authenticated:
-        print('TEST')
         messages.warning(request, "Please log in to view that page")
         return redirect('/')
 
@@ -236,7 +237,7 @@ def user_page(request, username):
         response_video = requests.get(
             'https://www.googleapis.com/youtube/v3/search?'
             'part=snippet&maxResults=5&q=' + search_string +
-            '&key=AIzaSyBXLC_j264f9ZUllnvEidYIBAVckJVI5cI'
+            '&key=' + youtube_api_key +
             '&safeSearch=strict&type=video'
         )
         data_video = response_video.json()
